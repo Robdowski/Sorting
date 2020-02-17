@@ -37,5 +37,9 @@ print('Sorted Bubble', sorted_bubble)
 
 # STRETCH: implement the Count Sort function below
 def count_sort( arr, maximum=-1 ):
-
+    count = {}
+    next_index = []
+    sorted_arr = []
+    for item in arr:
+        count[item] += 1
     return arr
