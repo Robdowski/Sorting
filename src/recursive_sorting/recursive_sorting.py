@@ -1,32 +1,28 @@
 # TO-DO: complete the helpe function below to merge 2 sorted arrays
-def merge( arrA, arrB ):
-    elements = len(arrA) + len(arrB)
-    merged_arr = [0] * elements
-    # TO-DO
+def merge( arr, arrA, arrB ):
     i = 0
     j = 0
     k = 0
     while i < len(arrA) and j < len(arrB):
         if arrA[i] < arrB[j]:
-            merged_arr[k] = arrA[i]
+            arr[k] = arrA[i]
             i += 1
         else:
-            merged_arr[k] = arrB[j]
+            arr[k] = arrB[j]
             j += 1
         k += 1
 
     while i < len(arrA):
-        merged_arr[k] = arrA[i]
+        arr[k] = arrA[i]
         i += 1
         k += 1
 
     while j < len(arrB):
-        merged_arr[k] = arrB[j]
+        arr[k] = arrB[j]
         j += 1
         k += 1
-    
-    print("merged", merged_arr)
-    return merged_arr
+
+    return arr
 
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
@@ -37,30 +33,7 @@ def merge_sort( arr ):
         right = arr[mid:]
         merge_sort(left)
         merge_sort(right)
-        # merge(left, right)
-
-        i = 0
-        j = 0
-        k = 0
-
-        while i < len(left) and j < len(right):
-            if left[i] < right[j]:
-                arr[k] = left[i]
-                i += 1
-            else:
-                arr[k] = right[j]
-                j += 1
-            k += 1
-
-        while i < len(left):
-            arr[k] = left[i]
-            i += 1
-            k += 1
-
-        while j < len(right):
-            arr[k] = right[j]
-            j += 1
-            k += 1
+        merge(arr, left, right)
     
     return arr
 
